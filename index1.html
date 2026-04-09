@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI-Based Startup Valuation System</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(120deg, #e3f2fd, #f7f9fb);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      transition: background 1s ease-in-out;
+    }
+
+    /* ===== WELCOME SECTION ===== */
+    .welcome-screen {
+      text-align: center;
+      animation: fadeIn 2s ease;
+    }
+
+    .welcome-screen h1 {
+      font-size: 32px;
+      color: #0a3d62;
+      margin-bottom: 15px;
+      animation: slideIn 1.2s ease-out;
+    }
+
+    .welcome-screen p {
+      font-size: 18px;
+      color: #555;
+      max-width: 500px;
+      margin: 0 auto 25px auto;
+      font-style: italic;
+    }
+
+    .start-btn {
+      background: linear-gradient(135deg, #0a3d62, #145da0);
+      border: none;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 18px;
+      color: #fff;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      box-shadow: 0 5px 20px rgba(10, 61, 98, 0.4);
+    }
+
+    .start-btn:hover {
+      transform: scale(1.05);
+      background: linear-gradient(135deg, #145da0, #1e81b0);
+      box-shadow: 0 8px 25px rgba(10, 61, 98, 0.5);
+    }
+
+    /* ===== FORM CONTAINER ===== */
+    .container {
+      background: #fff;
+      width: 400px;
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      text-align: center;
+      display: none;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    h1 {
+      color: #0a3d62;
+      font-size: 24px;
+      margin-bottom: 25px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      font-weight: 500;
+      color: #333;
+      margin: 10px 0 6px 
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1.5px solid #ccc;
+      font-size: 15px;
+      margin-bottom: 15px;
+      transition: all 0.3s ease;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #0a3d62;
+      box-shadow: 0 0 8px rgba(10, 61, 98, 0.3);
+      transform: scale(1.02);
+    }
+
+    button {
+      background: linear-gradient(135deg, #0a3d62, #145da0);
+      color: white;
+      border: none;
+      padding: 14px 20px;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(10, 61, 98, 0.3);
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #145da0, #1e81b0);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(10, 61, 98, 0.4);
+    }
+
+    .result {
+      margin-top: 25px;
+      background: #e3f2fd;
+      padding: 18px;
+      border-radius: 12px;
+      display: none;
+      box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.05);
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    .result h3 {
+      color: #0a3d62;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .result p {
+      font-size: 20px;
+      font-weight: 600;
+      color: #145da0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideIn {
+      from { transform: translateY(-20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== Welcome Section ===== -->
+  <div class="welcome-screen" id="welcomeScreen">
+    <h1>Welcome to AI-Based Valuation</h1>
+    <p>“Empowering your startup dreams with AI-driven insights and smart valuation.”</p>
+    <button class="start-btn" id="startBtn">✨ Start Valuation</button>
+  </div>
+
+  <!-- ===== Main App Section ===== -->
+  <div class="container" id="valuationContainer">
+    <h1>AI-Based Startup Valuation</h1>
+
+    <label>Revenue (₹ Cr)</label>
+    <input type="number" id="revenue" placeholder="Enter revenue" />
+
+    <label>EBITDA (₹ Cr)</label>
+    <input type="number" id="ebitda" placeholder="Enter EBITDA" />
+
+    <label>Market Cap (₹ Cr)</label>
+    <input type="number" id="marketCap" placeholder="Enter market cap" />
+
+    <label>Growth Rate (%)</label>
+    <input type="number" id="growth" placeholder="Enter growth rate" />
+
+    <button id="predictBtn">🔮 Predict Valuation</button>
+
+    <div class="result" id="resultBox">
+      <h3>Estimated Valuation:</h3>
+      <p id="valuationText">₹ 0.00 Cr</p>
+    </div>
+  </div>
+
+  <script>
+    // Transition from welcome to valuation form
+    document.getElementById("startBtn").addEventListener("click", () => {
+      document.getElementById("welcomeScreen").style.display = "none";
+      document.getElementById("valuationContainer").style.display = "block";
+      document.body.style.background = "linear-gradient(120deg, #f7f9fb, #d7efff)";
+    });
+
+    // Prediction logic
+    document.getElementById("predictBtn").addEventListener("click", () => {
+      const revenue = parseFloat(document.getElementById("revenue").value);
+      const ebitda = parseFloat(document.getElementById("ebitda").value);
+      const marketCap = parseFloat(document.getElementById("marketCap").value);
+      const growth = parseFloat(document.getElementById("growth").value);
+      const resultBox = document.getElementById("resultBox");
+      const valuationText = document.getElementById("valuationText");
+
+      if (isNaN(revenue) || isNaN(ebitda) || isNaN(marketCap) || isNaN(growth)) {
+        alert("Please fill all the fields correctly!");
+        return;
+      }
+
+      const valuation = revenue * 2.5 + ebitda * 3 + marketCap * 0.8 + growth * 100000;
+
+      valuationText.textContent = `₹ ${valuation.toLocaleString()} Cr`;
+      resultBox.style.display = "block";
+    });
+  </script>
+</body>
+</html>
