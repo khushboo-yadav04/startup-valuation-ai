@@ -25,7 +25,7 @@ A lightweight web application that predicts startup valuation instantly using ke
 
 ## 📷 Demo
 
-👉 [Live Demo](https://khushboo-yadav04.github.io/startup-valuation-ai)
+👉 [Live Demo]https://khushboo-yadav04.github.io/startup-valuation-ai/
 
 
 ## ⚙️ How It Works
@@ -45,8 +45,7 @@ The valuation is calculated using a simplified financial model based on:
 1. Clone the Repository
 
 bash
-git clone https://github.com/yourusername/startup-valuation-calculator.git
-
+git clone https://khushboo-yadav04.github.io/startup-valuation-ai/
 2. Open index.html in your browser
 3. Click **Start Valuation**
 4. Enter your startup's financial details
