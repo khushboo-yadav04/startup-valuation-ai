@@ -12,6 +12,7 @@ body {
   animation: bgShift 8s infinite alternate ease-in-out;
 }
 
+
 @keyframes bgShift {
   0% { background-position: left; }
   100% { background-position: right; }
