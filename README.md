@@ -5,7 +5,6 @@ AI-based startup valuation web app using HTML, CSS &amp; JavaScript
 
 A lightweight web application that predicts startup valuation instantly using key financial inputs. Built using pure HTML, CSS, and JavaScript with a clean and responsive UI.
 
-
 ## 📌 Features
 
 - 🔮 Instant startup valuation prediction
