@@ -22,6 +22,7 @@ A lightweight web application that predicts startup valuation instantly using ke
 - Vanilla JavaScript
 
 
+
 ## 📷 Demo
 
 👉 [Live Demo]https://khushboo-yadav04.github.io/startup-valuation-ai/
